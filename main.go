@@ -13,19 +13,19 @@ import (
 
 func main() {
 	// Define RabbitMQ server URL.
-	serverRabbitMQ := os.Getenv("RABBITMQ_SERVER_URL")
+	amqpServerURL := os.Getenv("AMQP_SERVER_URL")
 
 	// Create a new RabbitMQ connection.
-	connRabbitMQ, err := amqp.Dial(serverRabbitMQ)
+	connectRabbitMQ, err := amqp.Dial(amqpServerURL)
 	if err != nil {
 		panic(err)
 	}
-	defer connRabbitMQ.Close()
+	defer connectRabbitMQ.Close()
 
 	// Let's start by opening a channel to our RabbitMQ
 	// instance over the connection we have already
 	// established.
-	channelRabbitMQ, err := connRabbitMQ.Channel()
+	channelRabbitMQ, err := connectRabbitMQ.Channel()
 	if err != nil {
 		panic(err)
 	}
