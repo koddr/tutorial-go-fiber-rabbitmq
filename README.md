@@ -14,7 +14,7 @@ This tutorial is more aimed at those who just want to understand how to working 
 make run
 ```
 
-4. Make HTTP request to a web server endpoint:
+4. Make HTTP request to the API endpoint:
 
 ```console
 curl \

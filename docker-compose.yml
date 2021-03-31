@@ -1,12 +1,13 @@
 version: "3.9"
 
 services:
+  # Create service with RabbitMQ.
   message-broker:
     image: rabbitmq:3-management-alpine
     container_name: message-broker
     ports:
-      - 5672:5672
-      - 15672:15672
+      - 5672:5672 # for sender and consumer connections
+      - 15672:15672 # for serve RabbitMQ GUI
     volumes:
       - ${HOME}/dev-rabbitmq/data/:/var/lib/rabbitmq
       - ${HOME}/dev-rabbitmq/log/:/var/log/rabbitmq
@@ -14,6 +15,7 @@ services:
     networks:
       - dev-network
 
+  # Create service with Fiber sender.
   sender:
     container_name: sender
     ports:
@@ -29,6 +31,7 @@ services:
     depends_on:
       - message-broker
 
+  # Create service with message consumer.
   consumer:
     container_name: consumer
     build:
@@ -44,5 +47,6 @@ services:
       - message-broker
 
 networks:
+  # Create a new Docker network.
   dev-network:
     driver: bridge
