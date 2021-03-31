@@ -2,7 +2,7 @@
 
 This tutorial is more aimed at those who just want to understand how to working with a message broker in Go.
 
-👉 The full article is published on **March 31, 2021**, on Dev.to: _...coming soon..._
+👉 The full article is published on **March 31, 2021**, on Dev.to: https://dev.to/koddr/working-with-rabbitmq-in-golang-by-examples-2dcn
 
 ## Quick start
 
