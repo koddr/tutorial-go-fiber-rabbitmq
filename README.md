@@ -7,16 +7,18 @@ This tutorial is more aimed at those who just want to understand how to working 
 ## Quick start
 
 1. Rename `.env.example` to `.env` and fill it with your environment values.
-2. Install [Docker](https://www.docker.com/get-started).
-3. Run project by this command:
+2. Install [Docker](https://www.docker.com/get-started) and start its system service.
+3. Run container with the RabbitMQ by this command:
 
 ```bash
-make docker.run
+make docker.rabbitmq
 ```
 
-4. Go to RabbitMQ GUI: [localhost:5672](http://localhost:5672)
+4. Start [Fiber](https://github.com/gofiber/fiber) web server by this command:
 
-![Screenshot](https://user-images.githubusercontent.com/11155743/113058619-0bec2480-91b7-11eb-9f0f-1102ea69f2fd.png)
+```bash
+make docker.fiber
+```
 
 5. Make HTTP request to a web server endpoint:
 
@@ -25,6 +27,10 @@ curl \
     --request GET \
     --url 'http://localhost:3000/send?msg=test'
 ```
+
+6. Go to RabbitMQ awesome dashboard [localhost:5672](http://localhost:5672) and see `QueueService1` queue with sent messages:
+
+![Screenshot](https://user-images.githubusercontent.com/11155743/113058619-0bec2480-91b7-11eb-9f0f-1102ea69f2fd.png)
 
 ## ⚠️ License
 

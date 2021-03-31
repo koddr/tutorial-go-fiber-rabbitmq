@@ -7,8 +7,6 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/streadway/amqp"
-
-	_ "github.com/joho/godotenv/autoload" // load .env file
 )
 
 func main() {
@@ -53,7 +51,7 @@ func main() {
 		logger.New(), // add simple logger
 	)
 
-	// Add route.
+	// Add route for send message to Service 1.
 	app.Get("/send", func(c *fiber.Ctx) error {
 		// Create a message to publish.
 		message := amqp.Publishing{

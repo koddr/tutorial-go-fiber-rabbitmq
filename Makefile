@@ -1,14 +1,7 @@
-.PHONY: run docker.network docker.rabbitmq
+.PHONY: run stop
 
-run:
-	go run main.go
+run: 
+	docker-compose up -d --build
 
-docker.rabbitmq:
-	docker run --rm -d \
-		--name dev-rabbitmq \
-		--hostname dev-rabbitmq \
-		--network dev-network \
-		-v ${HOME}/dev-rabbitmq-1:/var/lib/rabbitmq \
-		-p 5672:5672 \
-		-p 15672:15672 \
-		rabbitmq:3-management
+stop: 
+	docker-compose down

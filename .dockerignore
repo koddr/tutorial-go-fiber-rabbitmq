@@ -2,10 +2,11 @@
 .dockerignore
 .editorconfig
 .gitignore
-.env.example
-Dockerfile
+.gitattributes
+Dockerfile-*
 Makefile
 LICENSE
+**/*.yml
 **/*.md
 **/*_test.go
 
